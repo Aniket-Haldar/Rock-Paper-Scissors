@@ -1,0 +1,43 @@
+.Total
+{
+    display: flex;
+    flex-direction: column;
+}
+.Images
+{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgb(3, 4, 48);
+    gap: 45px;
+}
+.buttons
+{
+    display: flex;
+    justify-content: center;
+    gap: 170px;
+    padding: 20px;
+    background-color: rgb(24, 141, 219);
+    
+
+    
+    
+}
+button{
+    color: white;
+    background-color: rgb(199, 24, 24);
+    width: 80px;
+    height: 30px;
+    font-weight: 900;
+}
+.instructions
+{
+    display: flex;
+    font-weight: 900;
+    padding: 20px;
+    background-color: rgb(3, 4, 48);
+    color: white;
+    font-size: 20px;
+    justify-content: center;
+
+}
