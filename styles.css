@@ -30,13 +30,38 @@ button{
     height: 30px;
     font-weight: 900;
 }
-.instructions
+.Messages
 {
     display: flex;
+
     font-weight: 900;
     padding: 20px;
     background-color: rgb(3, 4, 48);
     color: white;
+    font-size: 20px;
+    justify-content: center;
+
+}
+.GameOverMessage
+{
+    display: flex;
+
+    font-weight: 900;
+    padding: 20px;
+    background-color: rgb(3, 4, 48);
+    color: white;
+    font-size: 20px;
+    justify-content: center;
+
+}
+.result
+{
+    display: flex;
+
+    font-weight: 900;
+    padding: 20px;
+    background-color: #e5e7eb;
+    color:#1f2937;
     font-size: 20px;
     justify-content: center;
 

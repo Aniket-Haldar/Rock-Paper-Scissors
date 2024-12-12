@@ -8,39 +8,38 @@ function getComputerChoice()
     else
     return "Scissors";
 }
-function getHumanChoice()
-{
-    let choice = prompt("Choose Rock,Paper or Scissors");
-    if (choice.toUpperCase()=="ROCK")
-        return "Rock";
-    else if (choice.toUpperCase()=="PAPER")
-        return "Paper";
-    else if (choice.toUpperCase()=="SCISSORS")
-        return "Scissors";
-    else
-        return "Invalid";
-    
-}
 let HumanScore=0;
 let ComputerScore=0;
+
+    const RockButton = document.querySelector("#Rock");
+    RockButton.addEventListener("click", () => { playRound("Rock", getComputerChoice())});
+   
+    const PaperButton = document.querySelector("#Paper");
+    PaperButton.addEventListener("click", () => { playRound("Paper", getComputerChoice())});
+
+
+    const ScissorsButton = document.querySelector("#Scissors");
+    ScissorsButton.addEventListener("click", () => { playRound("Scissors", getComputerChoice())});
+
 function playRound(humanChoice, computerChoice) {
+    let ResultMessage='';
     if (humanChoice=="Rock")
     {
-        if (computerChoice=="Rock")
+                if (computerChoice=="Rock")
         {
             ComputerScore++;
             HumanScore++;
-            console.log("It's a Draw");
+            ResultMessage="It's a Draw";
 
         }
         else if (computerChoice=="Paper"){
             ComputerScore++;
-            console.log("You Lost ! Paper defeats Rock");
+            ResultMessage="You Lost ! Paper defeats Rock";
         }
         else
             {
                 HumanScore++;
-                console.log("You Won ! Rock beats Scissors");
+                ResultMessage="You Won ! Rock beats Scissors";
             }
         }
     else if (humanChoice=="Paper"){
@@ -48,17 +47,17 @@ function playRound(humanChoice, computerChoice) {
             {
                 ComputerScore++;
                 HumanScore++;
-                console.log("It's a Draw");
+                ResultMessage="It's a Draw";
     
             }
             else if (computerChoice=="Scissors"){
                 ComputerScore++;
-                console.log("You Lost ! Scissors defeats Paper");
+                ResultMessage="You Lost ! Scissors defeats Paper";
             }
             else
                 {
                     HumanScore++;
-                    console.log("You Won ! Paper beats Rock");
+                    ResultMessage="You Won ! Paper beats Rock";
                 } 
 
             }
@@ -68,29 +67,45 @@ function playRound(humanChoice, computerChoice) {
             {
                 ComputerScore++;
                 HumanScore++;
-                console.log("It's a Draw");
+                ResultMessage="It's a Draw";
     
             }
             else if (computerChoice=="Rock"){
                 ComputerScore++;
-                console.log("You Lost ! Rock defeats Scissors");
+                ResultMessage="You Lost ! Rock defeats Scissors";
             }
             else
                 {
                     HumanScore++;
-                    console.log("You Won ! Scissors beats Paper");
+                    ResultMessage="You Won ! Scissors beats Paper";
                 }
       }
 
       else{
-        console.log("Invalid Move");
+        ResultMessage="Invalid Move";
       }
+      const ResultScreen=document.querySelector(".result");
+                ResultScreen.textContent=ResultMessage;
+               
+      Gameover();
+    }   
+        function Gameover(){
+            if (HumanScore === 5 || ComputerScore === 5) {
+                let finalScore="Game is Over, the Final Score is Human: "+HumanScore+" Computer Score: "+ComputerScore;
+                const Messages=document.querySelector(".Total");
+                const endMessage=document.createElement("div");
+                endMessage.classList.add("GameOverMessage");
+                endMessage.textContent=finalScore;
+                Messages.appendChild(endMessage);
+
+
+
+                
+                            
+        }
+    
     }
-    for (let i=1;i<=5;i++){
-  let humanSelection = getHumanChoice();
-  let computerSelection = getComputerChoice();
+ 
   
-  playRound(humanSelection, computerSelection);
-    }
-    console.log("Final Score of Human after 5 rounds is "+HumanScore+" and Final Score of Computer after 5 Rounds is " +ComputerScore);
-  
+
+    
